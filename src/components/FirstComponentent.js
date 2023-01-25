@@ -20,10 +20,29 @@ export const FirstComponent = () => {
 	return (
 		<div>
 			<h2>First component</h2>
-			<p>Mi nombre es: {name}</p>
+			<p>
+				Mi nombre es:{' '}
+				<strong className={name.length <= 4 ? 'green' : 'red'}>{name}</strong>
+			</p>
 			<p>Mi web es: {web}</p>
 
-			<button onClick={(e) => changeName('Maria Victoria')}>Un botón</button>
+			<input
+				type='text'
+				onChange={(e) => changeName(e.target.value)}
+				placeholder='Cambia el nombre'
+			/>
+
+			<button
+				onClick={(e) =>
+					console.log('El valor guardado en este estado es:', name)
+				}
+			>
+				Mostrar valor de estado
+			</button>
+
+			<button onClick={(e) => changeName('Maria Victoria')}>
+				Cambiar nombre
+			</button>
 
 			<h3>Curso</h3>
 			<ul>
